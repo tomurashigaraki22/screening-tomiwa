@@ -32,7 +32,10 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
 
 
   return (
-    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)} onClick={() => setisOpen(true)}>
+    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)} onClick={() => {
+      setisHovered(false)
+      setisOpen(true)
+    }}>
       <div className="flex items-start gap-3">
         <Avatar src={avatar} alt={name} />
         <div className="flex-1 min-w-0">
