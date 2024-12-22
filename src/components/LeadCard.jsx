@@ -30,13 +30,18 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
     }
   }
 
+  const showOpen = () => {
+    setisHovered(false)
+    setisOpen(true)
+  }
+
 
   return (
-    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)} onClick={() => {
-      setisHovered(false)
-      setisOpen(true)
-    }}>
-      <div className="flex items-start gap-3">
+    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)}>
+      <div className="flex items-start gap-3" onClick={() => {
+        setisHovered(false)
+        setisOpen(true)
+      }}>
         <Avatar src={avatar} alt={name} />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
@@ -54,7 +59,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
         </div>
         
         {/* Button Section */}
-        <button className="p-2 hover:bg-gray-100 rounded-full" >
+        <button className="p-2 hover:bg-gray-100 rounded-full" onClick={() => setisOpen(true)}>
           <svg width="21" height="21" viewBox="0 0 16 16" fill="#000000">
             <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -236,7 +241,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
           </div>
         </div>
       )}
-      <PartIt name={name} title={main} description={description}/>
+      <PartIt name={name} title={main} description={description}  onPress={showOpen}/>
 
       <div className="mt-3 flex items-center gap-2">
             {tags.map((tag, index) => (

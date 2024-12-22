@@ -1,8 +1,8 @@
 import { EnvelopeIcon, SparklesIcon } from './icons'
 
-export default function EngageCard({ title, description }) {
+export default function EngageCard({ title, description, onPress }) {
   return (
-    <div className="relative bg-gradient-to-r from-blue-50/80 to-purple-50/80 p-4 rounded-xl w-full mt-2 mb-2">
+    <div className="relative bg-gradient-to-r from-blue-50/80 to-purple-50/80 p-4 rounded-xl w-full mt-2 mb-2" onClick={onPress}>
       {/* Top-right sparkle icon */}
       <div className="absolute top-3 right-3 text-purple-400">
         <SparklesIcon />
