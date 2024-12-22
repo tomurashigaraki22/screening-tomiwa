@@ -7,6 +7,7 @@ import Modal from 'react-modal'
 import PartIt from "./PartOf";
 import { leads } from "./Leads";
 import { ArrowRight, Book, Check, ChevronLeft, ChevronRight, Flag, LinkedinIcon, Medal, Settings, X } from "lucide-react";
+import SuggestionCard from "./SuggestionCard";
 
 
 
@@ -57,6 +58,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
         </button>
       </div>
 
+
       {isOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-10 p-4 overflow-y-auto">
         <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shiny-gradient-border">
@@ -104,6 +106,9 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
                 </div>
               </div>
             </div>
+
+            <SuggestionCard text={currentLead.interest}/>
+
   
             {/* Tabs */}
             <div className="border-b pt-3">
