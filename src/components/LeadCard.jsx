@@ -6,13 +6,14 @@ import React, { useState } from "react";
 import Modal from 'react-modal'
 import PartIt from "./PartOf";
 import { leads } from "./Leads";
-import { ArrowRight, Check, ChevronLeft, ChevronRight, Flag, LinkedinIcon, Medal, X } from "lucide-react";
+import { ArrowRight, Book, Check, ChevronLeft, ChevronRight, Flag, LinkedinIcon, Medal, Settings, X } from "lucide-react";
 
 
 
 export function LeadCard({ avatar, name, title, company, description, tags, dueText, main, icon, onClick }) {
   const [isOpen, setisOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setisHovered] = useState(false)
   const [activeTab, setActiveTab] = useState('engage')
   const currentLead = leads[currentIndex]
 
@@ -30,7 +31,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
 
 
   return (
-    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300">
+    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)}>
       <div className="flex items-start gap-3">
         <Avatar src={avatar} alt={name} />
         <div className="flex-1 min-w-0">
@@ -57,7 +58,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-10 p-4 overflow-y-auto">
         <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shiny-gradient-border">
           <div className="sticky top-0 bg-white z-10">
             <div className="flex items-center justify-between p-4 border-b">
@@ -211,6 +212,21 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
         </div>
       </div>
 
+      )}
+
+      {isHovered && (
+        <div className="absolute z-10 bg-white border border-gray-200 rounded-lg shadow-lg p-4 mt-2 w-72 cursor-pointer">
+          <h4 className="font-semibold mb-2 text-gray-600">Preview</h4>
+          <p className="text-sm text-gray-600 mb-2">{name}</p>
+          <div className="flex items-center gap-2">
+            <Book className="text-gray-400" />
+            <span className="text-sm text-gray-500">{description}</span>
+          </div>
+          <div className="flex items-center gap-2 mt-2">
+            <Settings className="text-gray-400" />
+            <span className="text-sm text-gray-500">Click caret to view full details</span>
+          </div>
+        </div>
       )}
       <PartIt name={name} title={main} description={description}/>
 
