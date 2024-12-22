@@ -11,6 +11,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        livvic: ['"Livvic"', 'sans-serif'],
+        montserrat: ['"Montserrat"', 'sans-serif'],
+      },
     },
   },
   plugins: [],
