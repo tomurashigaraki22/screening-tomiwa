@@ -1,6 +1,6 @@
 export default function SuggestionCard({ text, onPress }) {
     return (
-      <div className="flex items-center justify-between p-2 mt-3 bg-blue-50 rounded-lg max-w-3xl" onClick={onPress}>
+      <div className="flex items-center justify-between p-2 mt-3 bg-blue-50 rounded-lg max-w-3xl">
         <div className="flex items-center gap-3">
           <svg
             width="20"

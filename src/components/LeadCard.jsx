@@ -37,7 +37,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
 
 
   return (
-    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)}>
+    <div className="relative p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)}>
       <div className="flex items-start gap-3" onClick={() => {
         setisHovered(false)
         setisOpen(true)
@@ -228,7 +228,10 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
       )}
 
       {isHovered && (
-        <div className="absolute z-10 bg-white border border-gray-200 rounded-lg shadow-lg p-4 mt-2 w-72 cursor-pointer">
+        <div className="absolute top-0 left-0 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 mt-2 w-72 cursor-pointer" onClick={() => {
+          setisHovered(false)
+          setisOpen(true)
+        }}>
           <h4 className="font-semibold mb-2 text-gray-600">Preview</h4>
           <p className="text-sm text-gray-600 mb-2">{name}</p>
           <div className="flex items-center gap-2">
