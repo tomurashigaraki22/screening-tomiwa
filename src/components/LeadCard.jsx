@@ -32,7 +32,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
 
 
   return (
-    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)}>
+    <div className="p-4 hover:bg-gray-50 rounded-lg transition-colors shadow-lg border-gray-300" onMouseEnter={() => setisHovered(true)} onMouseLeave={() => setisHovered(false)} onClick={() => setisOpen(true)}>
       <div className="flex items-start gap-3">
         <Avatar src={avatar} alt={name} />
         <div className="flex-1 min-w-0">
@@ -51,7 +51,7 @@ export function LeadCard({ avatar, name, title, company, description, tags, dueT
         </div>
         
         {/* Button Section */}
-        <button className="p-2 hover:bg-gray-100 rounded-full" onClick={() => setisOpen(true)}>
+        <button className="p-2 hover:bg-gray-100 rounded-full" >
           <svg width="21" height="21" viewBox="0 0 16 16" fill="#000000">
             <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
